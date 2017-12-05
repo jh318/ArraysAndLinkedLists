@@ -62,17 +62,68 @@ namespace dataStructures
 
 		void prepend(T data)
 		{
-			
+			ListNode<T>* newNode = new ListNode<T>;
+			newNode->data = data;
+			newNode->next = head;
+
+			if (tail == nullptr)
+			{
+				tail = head;
+			}
+
+			++length;
 		}
 
 		void removeHead()
 		{
-		
+			ListNode<T>* node = nullptr;
+
+			if (head != nullptr)
+			{
+				node = head->next;
+				delete head;
+				head = node;
+
+				--length;
+			}
+
+			if (head == nullptr)
+			{
+				tail = nullptr;
+			}
 		}
 
 		void removeTail() 
 		{
-		
+			ListNode<T>* node = head;
+			
+			if (head != nullptr)
+			{
+				if (head == tail)
+				{
+					delete head;
+					head = nullptr;
+					tail = nullptr;
+				}
+				else
+				{
+					while (node->next != tail) 
+					{
+						node = node->next;
+					}
+
+					tail = node;
+					delete node->next;
+					node->next = nullptr;
+				}
+
+				--length;
+			}
+
+			if (head == nullptr)
+			{
+				tail = nullptr;
+			}
 		}
 
 	};
