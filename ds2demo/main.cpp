@@ -21,4 +21,15 @@ int main()
 		pNode = pNode->next;
 	}
 
+	Stack<int> myStack;
+	myStack.push(100);
+	myStack.pop();
+
+
+	Queue<int> myQueue;
+	myQueue.enqueue(100);
+	myQueue.dequeue();
+
+	
+
 }
